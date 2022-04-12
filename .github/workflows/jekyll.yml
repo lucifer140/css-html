@@ -15,6 +15,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the site in the jekyll/builder container
       run: |
+        sudo rm -rf "/actions-runner/_work/css-html/css-html/.jekyll-cache"
         sudo chmod 666 /var/run/docker.sock
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
